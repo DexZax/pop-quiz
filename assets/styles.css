@@ -10,6 +10,12 @@ body {
     display: flex;
 }
 
+#content-container {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px 200px;
+}
+
 .question-box {
     display: flex;
     justify-content: center;
@@ -21,10 +27,12 @@ body {
 
 #answer-btns {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     flex-direction: column;
     list-style: none;
+    padding: 20px;
+   
 }
 
 .controls {
@@ -39,6 +47,8 @@ body {
     font-size: 1.4rem;
     border-radius: 10px;
     margin: 5px ;
+    height: 50px;
+    width: 150PX;
 }
 
 .btn:hover {
