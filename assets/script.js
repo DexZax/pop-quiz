@@ -33,6 +33,16 @@ var questions = [
     question: "what color is the sky?",
     answer: ["green", "blue", "red", "yellow"],
     correct: "blue",
+  },
+  {
+    question: "how long did it take me to make this quiz?",
+    answer: ["3 hours", "5 hours", "20 min", "too long!"],
+    correct: "too long!",
+  },
+  {
+    question: "what year is it?",
+    answers: ["2020", "2022", "2023", "2019"],
+    correct: "2022",
   }
 ];
 
@@ -75,23 +85,23 @@ var setNextQuestion = function (questionObj) {
   questionEl.textContent = questionObj.question;
 
   for (var i = 0; i < questionObj.answer.length; i++) {
-    //if (i < questions.length -1) {
+    //if (){
     answerBtn = document.createElement("button");
     answerBtn.className = "answer-btn btn";
     answerBtn.setAttribute("value", questionObj.answer[i]);
     answerBtn.textContent = questionObj.answer[i];
     answerBtn.addEventListener("click", selectAnswer);
     answerContainer.appendChild(answerBtn);
-    // }
-    // else {
-    //     endGame();
+    //}
+    //else {
+     //  endGame();
     // }
   }
   
 };
 
-// var endGame = function() {
-//     console.log("end");
-// }
+ //var endGame = function() {
+     //console.log("end");
+ //}
 
 startBtn.addEventListener("click", startGame);
