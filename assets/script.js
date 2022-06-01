@@ -8,15 +8,16 @@ var answerContainer = document.querySelector("#answer-btns");
 var resultContainer = document.querySelector("#result");
 var startTime = 50;
 
-// var countdownEl = document.querySelector(".timer");
-// setInterval(updateCountdown, 1000);
+var countdownEl = document.querySelector(".timer");
 
-// function updateCountdown() {
-//     var seconds = math.floor(startTime)
+setInterval(updateCountdown, 1000);
 
-//     countdownEl.innerHTML = ;
-//     startTime--;
-// }
+function updateCountdown() {
+    var seconds = Math.floor(startTime % 60);
+
+    countdownEl.innerHTML = `${seconds}`;
+    startTime--;
+}
 
 var questions = [
   {
@@ -52,6 +53,7 @@ var clearAnswers = function () {
 };
 
 var startGame = function () {
+    updateCountdown();
   startBtn.classList.add("hide");
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
