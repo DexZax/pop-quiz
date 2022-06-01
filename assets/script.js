@@ -10,7 +10,7 @@ var startTime = 50;
 
 var countdownEl = document.querySelector(".timer");
 
-setInterval(updateCountdown, 1000);
+// setInterval(updateCountdown, 1000);
 
 function updateCountdown() {
     var seconds = Math.floor(startTime % 60);
@@ -42,7 +42,7 @@ var questions = [
   },
   {
     question: "what year is it?",
-    answers: ["2020", "2022", "2023", "2019"],
+    answer: ["2020", "2022", "2023", "2019"],
     correct: "2022",
   }
 ];
@@ -53,7 +53,7 @@ var clearAnswers = function () {
 };
 
 var startGame = function () {
-    updateCountdown();
+  setInterval(updateCountdown, 1000);
   startBtn.classList.add("hide");
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;

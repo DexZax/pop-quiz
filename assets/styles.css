@@ -3,11 +3,21 @@
     padding: 0;
 }
 
-body {
-    padding: 50px;
+main {
+    display: flex; 
+    padding: 0 50px;
+    justify-content: center;
+    /* align-items: center;  */
+    
+    
+}
+
+header {
+    display: flex;
+    height: 50px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
 }
 
 #content-container {
@@ -16,6 +26,7 @@ body {
     padding: 20px 20px;
     height: 500px;
     width: 1000px;
+    
 }
 
 .question-box {
@@ -38,8 +49,9 @@ body {
 }
 
 .controls {
-    display: flex;
+    display: block;
     justify-content: center;
+    margin-bottom: none;
 }
 
 .btn {
@@ -51,6 +63,11 @@ body {
     margin: 5px ;
     height: 50px;
     width: 150PX;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
 }
 
 .btn:hover {
