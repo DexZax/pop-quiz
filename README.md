@@ -23,4 +23,5 @@ N/A
 
 N/A
 
-Deployed Link: 
+Deployed Link: https://dexzax.github.io/pop-quiz/
+
