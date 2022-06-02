@@ -103,6 +103,11 @@ input {
     padding: 15px;
 }
 
+.saveBtnContain {
+    display: flex;
+    justify-content: center;
+}
+
 .hide {
     display: none;
 }

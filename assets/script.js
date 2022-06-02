@@ -1,5 +1,5 @@
 var startBtn = document.querySelector("#start-btn");
-var contentContainer = document.querySelector("#content-container");
+
 var questionEl = document.querySelector("#question");
 var answerBtn; 
 var currentQuestionIndex;
@@ -7,10 +7,12 @@ var shuffledQuestions;
 var answerContainer = document.querySelector("#answer-btns");
 var resultContainer = document.querySelector("#result");
 var startTime = 50;
-var labelEl = document.querySelector("#label")
-var saveBox = document.querySelector("#save-score")
+var labelEl = document.querySelector("#label");
+var saveBox = document.querySelector("#save-score");
 var timer;
-var saveText = document.querySelector("#savetext")
+var saveText = document.querySelector("#savetext");
+var initils = document.querySelector(".initials");
+var saveBtn = document.querySelector(".save-btn");
 
 var countdownEl = document.querySelector(".timer");
 
@@ -57,6 +59,7 @@ var clearAnswers = function () {
 
 var startGame = function () {
   timer = setInterval(updateCountdown, 1000);
+  var contentContainer = document.querySelector("#content-container");
   startBtn.classList.add("hide");
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
@@ -76,7 +79,7 @@ var selectAnswer = function (event) {
   } else {
     var result = document.createElement("pTag");
     result.textContent = "Wrong!";
-    timer = timer - 10;
+    startTime = startTime - 10;
     resultContainer.appendChild(result);
   }
   currentQuestionIndex++;
@@ -105,12 +108,19 @@ var setNextQuestion = function (questionObj) {
 };
 
  var endGame = function() {
-   debugger;
    clearInterval(timer);
-    // contentContainer.innerHTML = "";
-    //  contentContainer.classList.add("hide");
+   var contentContainer = document.querySelector("#content-container");
+     contentContainer.classList.add("hide");
      saveText.textContent = ("Your socre is " + countdownEl.textContent + "! write your initials to save your score.");
      saveBox.classList.remove("hide")
+     
+     
  };
 
+ var saveInitials = function() {
+   console.log("save");
+   localStorage.setItem("initials", JSON.stringify(initials));
+ }
+
 startBtn.addEventListener("click", startGame);
+saveBtn.addEventListener("cick", saveInitials);
