@@ -11,7 +11,7 @@ var labelEl = document.querySelector("#label");
 var saveBox = document.querySelector("#save-score");
 var timer;
 var saveText = document.querySelector("#savetext");
-var initils = document.querySelector(".initials");
+var initials = document.querySelector(".initials");
 var saveBtn = document.querySelector(".save-btn");
 
 var countdownEl = document.querySelector(".timer");
@@ -117,10 +117,16 @@ var setNextQuestion = function (questionObj) {
      
  };
 
+ var savedScore = []
+ 
+
  var saveInitials = function() {
    console.log("save");
-   localStorage.setItem("initials", JSON.stringify(initials));
+   var score = countdownEl.textContent;
+   initials = initials.value;
+   savedScore.push({score, initials})
+   localStorage.setItem("savedScore", JSON.stringify(savedScore));
  }
 
 startBtn.addEventListener("click", startGame);
-saveBtn.addEventListener("cick", saveInitials);
+saveBtn.addEventListener("click", saveInitials);

@@ -96,7 +96,7 @@ input {
     padding: 50px;
 }
 
-.initials {
+.initCont {
     display: flex;
     justify-content: center;
     align-items: center;
