@@ -128,5 +128,6 @@ var setNextQuestion = function (questionObj) {
    localStorage.setItem("savedScore", JSON.stringify(savedScore));
  }
 
+
 startBtn.addEventListener("click", startGame);
 saveBtn.addEventListener("click", saveInitials);
