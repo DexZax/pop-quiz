@@ -74,6 +74,37 @@ header {
     background-color: aliceblue;
 }
 
+#save-score {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px 20px;
+    height: 500px;
+    width: 1000px;
+}
+
+input {
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+#savetext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    padding: 50px;
+}
+
+.initials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
 .hide {
     display: none;
 }
+
+

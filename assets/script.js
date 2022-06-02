@@ -1,16 +1,19 @@
 var startBtn = document.querySelector("#start-btn");
 var contentContainer = document.querySelector("#content-container");
 var questionEl = document.querySelector("#question");
-var answerBtn; //document.querySelector('.answer-btn')
+var answerBtn; 
 var currentQuestionIndex;
 var shuffledQuestions;
 var answerContainer = document.querySelector("#answer-btns");
 var resultContainer = document.querySelector("#result");
 var startTime = 50;
+var labelEl = document.querySelector("#label")
+var saveBox = document.querySelector("#save-score")
+var timer;
+var saveText = document.querySelector("#savetext")
 
 var countdownEl = document.querySelector(".timer");
 
-// setInterval(updateCountdown, 1000);
 
 function updateCountdown() {
     var seconds = Math.floor(startTime % 60);
@@ -26,22 +29,22 @@ var questions = [
     correct: "4",
   },
   {
-    question: "how are you?",
+    question: "How are you?",
     answer: ["good", "okay", "great", "cool"],
     correct: "good",
   },
   {
-    question: "what color is the sky?",
+    question: "What color is the sky?",
     answer: ["green", "blue", "red", "yellow"],
     correct: "blue",
   },
   {
-    question: "how long did it take me to make this quiz?",
+    question: "How long did it take me to make this quiz?",
     answer: ["3 hours", "5 hours", "20 min", "too long!"],
     correct: "too long!",
   },
   {
-    question: "what year is it?",
+    question: "What year is it?",
     answer: ["2020", "2022", "2023", "2019"],
     correct: "2022",
   }
@@ -53,11 +56,10 @@ var clearAnswers = function () {
 };
 
 var startGame = function () {
-  setInterval(updateCountdown, 1000);
+  timer = setInterval(updateCountdown, 1000);
   startBtn.classList.add("hide");
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
-    //currentQuestionIndex++;
   contentContainer.classList.remove("hide");
   setNextQuestion();
 };
@@ -74,6 +76,7 @@ var selectAnswer = function (event) {
   } else {
     var result = document.createElement("pTag");
     result.textContent = "Wrong!";
+    timer = timer - 10;
     resultContainer.appendChild(result);
   }
   currentQuestionIndex++;
@@ -81,29 +84,33 @@ var selectAnswer = function (event) {
 };
 
 var setNextQuestion = function (questionObj) {
+  
   var questionObj = shuffledQuestions[currentQuestionIndex];
+  if(shuffledQuestions.length === currentQuestionIndex) {
+    return endGame();
+  }
   contentContainer = "";
   
   questionEl.textContent = questionObj.question;
 
   for (var i = 0; i < questionObj.answer.length; i++) {
-    //if (){
     answerBtn = document.createElement("button");
     answerBtn.className = "answer-btn btn";
     answerBtn.setAttribute("value", questionObj.answer[i]);
     answerBtn.textContent = questionObj.answer[i];
     answerBtn.addEventListener("click", selectAnswer);
     answerContainer.appendChild(answerBtn);
-    //}
-    //else {
-     //  endGame();
-    // }
   }
   
 };
 
- //var endGame = function() {
-     //console.log("end");
- //}
+ var endGame = function() {
+   debugger;
+   clearInterval(timer);
+    // contentContainer.innerHTML = "";
+    //  contentContainer.classList.add("hide");
+     saveText.textContent = ("Your socre is " + countdownEl.textContent + "! write your initials to save your score.");
+     saveBox.classList.remove("hide")
+ };
 
 startBtn.addEventListener("click", startGame);
